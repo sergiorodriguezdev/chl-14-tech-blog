@@ -1,16 +1,19 @@
 // Data
 const users = [
   {
+    id: 1,
     name: "Super User",
     email: "superuser@email.com",
     password: "password123",
   },
   {
+    id: 2,
     name: "John",
     email: "john@email.com",
     password: "password123",
   },
   {
+    id: 3,
     name: "Mary",
     email: "mary@email.com",
     password: "password123",

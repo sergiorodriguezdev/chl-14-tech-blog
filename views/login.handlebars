@@ -1,0 +1,66 @@
+<form id="login-form" class="">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Login</h2>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label for="login-email" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="login-email"
+          placeholder="name@example.com"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="login-pwd" class="form-label">Password</label>
+        <input type="password" class="form-control" id="login-pwd" required />
+      </div>
+      <div class="d-grid mb-3">
+        <button class="btn btn-primary" type="submit">Login</button>
+      </div>
+      <a href="" id="signup-switch">Sign up instead</a>
+    </div>
+  </div>
+</form>
+
+<form id="signup-form" class="visually-hidden">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Sign Up</h2>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label for="signup-name" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="signup-name"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="signup-email" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="signup-email"
+          placeholder="name@example.com"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="signup-pwd" class="form-label">Password</label>
+        <input type="password" class="form-control" id="signup-pwd" required />
+      </div>
+      <div class="d-grid mb-3">
+        <button class="btn btn-primary" type="submit">Sign Up</button>
+      </div>
+      <a href="" id="login-switch">Login instead</a>
+    </div>
+  </div>
+</form>
+
+<script src="./js/login.js"></script>

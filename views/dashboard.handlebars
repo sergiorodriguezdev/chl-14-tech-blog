@@ -1,0 +1,21 @@
+<h1 class="display-2">Your Dashboard</h1>
+<button class="btn btn-primary">New Post</button>
+
+<div id="dashboard-posts">
+  {{#each posts as |post|}}
+    <div class="card my-3" data-post-id={{id}}>
+      <div
+        class="card-header d-flex justify-content-between align-items-center"
+      >
+        <h5 class="card-title">{{post.title}}</h5>
+        <h5 class="card-title">{{format_date post.createdOn}}</h5>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+<form id="new-post" class="visually-hidden">
+
+</form>
+
+<script src="./js/dashboard.js"></script>

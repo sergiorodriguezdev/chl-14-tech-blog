@@ -1,14 +1,18 @@
+{{!-- Add User's ID in data-* attribute for tracking --}}
 <div class="container" data-user-id={{user_id}}>
   <h1 class="display-2">Your Dashboard</h1>
   <button class="btn btn-primary" id="new-post">New Post</button>
 </div>
 
 <div id="dashboard-posts" class="container">
+  {{!-- Iterate through all posts --}}
   {{#each posts as |post|}}
+    {{!-- Add post object as a JSON string using helper function in card's data-* attribute --}}
     <div class="card my-3" data-post="{{to_json post}}">
       <div
         class="card-header d-flex justify-content-between align-items-center"
       >
+        {{!-- Add post's title and formatted date it was created --}}
         <h5 class="card-title">{{post.title}}</h5>
         <h5 class="card-title">{{format_date post.createdOn}}</h5>
       </div>
@@ -16,6 +20,7 @@
   {{/each}}
 </div>
 
+{{!-- Hidden form --}}
 <form id="form-post" class="container visually-hidden">
   <div class="card my-3">
     <div class="card-header d-flex justify-content-between">

@@ -30,6 +30,7 @@ const sess = {
 
 app.use(session(sess));
 
+// Set handlebars engine settings
 const hbs = exphbs.create({ helpers });
 
 app.engine("handlebars", hbs.engine);

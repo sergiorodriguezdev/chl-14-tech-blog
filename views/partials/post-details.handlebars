@@ -1,9 +1,13 @@
+{{!-- Add the post's ID value to card as a data-* attribute --}}
 <div class="card my-3" data-post-id={{id}}>
   <div class="card-header d-flex justify-content-between align-items-center">
+    {{!-- Add post's title --}}
     <h5 class="card-title">{{title}}</h5>
+    {{!-- Add post's owner and formatted date when it was created --}}
     <p class="card-text">Posted by {{user.name}} on {{format_date createdOn}}</p>
   </div>
   <div class="card-body">
+    {{!-- Add post's content in the body of the card --}}
     <p class="card-text">{{content}}</p>
   </div>
 </div>

@@ -10,7 +10,7 @@ router.post("/", async (req, res) => {
       password: req.body.password,
     });
 
-    req.session.save(() => {
+    req.session.save(() => {  // Update session object
       req.session.user_id = newUserData.id;
       req.session.logged_in = true;
 
@@ -38,7 +38,7 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    const isPwdValid = await userData.checkPassword(req.body.password);
+    const isPwdValid = await userData.checkPassword(req.body.password); // Validate password entered matches password saved in DB
 
     if (!isPwdValid) {
       res
@@ -47,7 +47,7 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    req.session.save(() => {
+    req.session.save(() => {  // Update session object
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
@@ -61,7 +61,7 @@ router.post("/login", async (req, res) => {
 
 // POST Logout
 router.post("/logout", async (req, res) => {
-  if (req.session.logged_in) {
+  if (req.session.logged_in) {  // If user is logged in, then destroy session object
     req.session.destroy(() => {
       res.status(204).end();
     });

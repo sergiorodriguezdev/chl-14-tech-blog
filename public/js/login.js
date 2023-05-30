@@ -4,6 +4,7 @@ const loginSwitchBtn = document.getElementById("login-switch");
 const signupForm = document.getElementById("signup-form");
 const loginForm = document.getElementById("login-form");
 
+// Handler function to switch between login and sign up forms in login page
 const formSwitch = (event) => {
   event.preventDefault();
   signupForm.classList.toggle("visually-hidden");
@@ -13,6 +14,7 @@ const formSwitch = (event) => {
 signupSwitchBtn.addEventListener("click", formSwitch);
 loginSwitchBtn.addEventListener("click", formSwitch);
 
+// Login form handler
 loginForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
@@ -20,6 +22,7 @@ loginForm.addEventListener("submit", async (event) => {
   const password = document.getElementById("login-pwd").value.trim();
 
   try {
+    // POST request to login controller
     const response = await fetch("/api/users/login", {
       method: "POST",
       body: JSON.stringify({
@@ -30,7 +33,7 @@ loginForm.addEventListener("submit", async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/dashboard");
+      document.location.replace("/dashboard");  // If logged in succesfully, forward user to their dashboard
     } else {
       alert("Failed to log in");
     }
@@ -40,6 +43,7 @@ loginForm.addEventListener("submit", async (event) => {
   }
 });
 
+// Sign up form handler
 signupForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
@@ -48,6 +52,7 @@ signupForm.addEventListener("submit", async (event) => {
   const password = document.getElementById("signup-pwd").value.trim();
 
   try {
+    // POST request to create user controller
     const response = await fetch("/api/users", {
       method: "POST",
       body: JSON.stringify({
@@ -59,7 +64,7 @@ signupForm.addEventListener("submit", async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("dashboard");
+      document.location.replace("dashboard"); // If user created successfully, forward user to their dashboard
     } else {
       alert("Failed to sign up");
     }

@@ -14,7 +14,6 @@ Post.hasMany(Comment, {
     // When a post is deleted, delete all comments associated with it
     //  so there aren't any orphaned comments in the db
     onDelete: 'CASCADE',
-    hooks: true
 });
 
 // Comment belongs to Post

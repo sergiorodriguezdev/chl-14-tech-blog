@@ -1,4 +1,4 @@
-// Data
+// Users data
 const users = [
   {
     id: 1,
@@ -20,6 +20,7 @@ const users = [
   },
 ];
 
+// Posts data
 const posts = [
   {
     title: "My first post!",
@@ -47,6 +48,7 @@ const posts = [
   },
 ];
 
+// Comments data
 const comments = [
   {
     content: "Funny!",
@@ -74,20 +76,21 @@ const comments = [
   },
 ];
 
+// Import models and DB connection
 const { User, Post, Comment } = require("../models");
 const sequelize = require("../config/connection");
 
 async function seedData() {
   try {
-    await sequelize.sync({ force: true });
+    await sequelize.sync({ force: true });  // Connect to DB and initialize schema
 
     await User.bulkCreate(users, {
-        individualHooks: true
+        individualHooks: true // Create users in bulk, apply hooks individually
     });
 
-    await Post.bulkCreate(posts);
+    await Post.bulkCreate(posts); // Create posts in bulk
 
-    await Comment.bulkCreate(comments);
+    await Comment.bulkCreate(comments); // Create comments in bulk
 
     process.exit(0);
   } catch (error) {
@@ -95,4 +98,5 @@ async function seedData() {
     process.exit(1);
   }
 }
+
 seedData();

@@ -1,12 +1,16 @@
+{{!-- Add post's ID to card's data-* attribute for tracking --}}
 <div class="card my-3" data-post-id={{post.id}}>
   <div class="card-header d-flex justify-content-between align-items-center">
+    {{!-- Add post's title --}}
     <h5 class="card-title">{{post.title}}</h5>
+    {{!-- Add username of post's creator and formatted date it was created on --}}
     <p class="card-text">Posted by
       {{post.user.name}}
       on
       {{format_date post.createdOn}}</p>
   </div>
   <div class="card-body">
+    {{!-- Add post's content in card's body --}}
     <p class="card-text">{{post.content}}</p>
   </div>
 </div>
@@ -14,6 +18,7 @@
 <div class="container">
   <h1 class="display-4">Comments</h1>
 
+  {{!-- Display New Comment button if user is logged in, or link to Login page if they're not --}}
   {{#if logged_in}}
     <button class="btn btn-primary" id="new-comment">New Comment</button>
   {{else}}
@@ -22,12 +27,14 @@
 </div>
 
 <div class="container" id="comment-group">
+  {{!-- Iterate through all comments --}}
   {{#each post.comments as |comment|}}
     <div class="card my-3">
       <div class="card-header">
         <br />
       </div>
       <div class="card-body">
+        {{!-- Add comment's content, username of creator, and formatted date it was created on --}}
         <p class="card-text">{{comment.content}}</p>
         <p class="card-text">
           >
@@ -38,6 +45,7 @@
   {{/each}}
 </div>
 
+{{!-- Hidden form to add comment, add post's ID and ID of logged in user to data-* attributes for tracking --}}
 <form id="form-comment" class="container visually-hidden" data-post-id={{post.id}} data-user-id={{user_id}}>
   <div class="card my-3">
     <div class="card-header">
@@ -56,6 +64,7 @@
   </div>
 </form>
 
+{{!-- Add comments JS if user is logged in --}}
 {{#if logged_in}}
   <script src="../js/comments.js"></script>
 {{/if}}

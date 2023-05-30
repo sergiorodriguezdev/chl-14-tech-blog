@@ -9,15 +9,16 @@ Post.belongsTo(User);
 // User has many Posts
 User.hasMany(Post);
 
-// Comment belongs to Post
-Comment.belongsTo(Post);
-
 // Post has many Comments
 Post.hasMany(Comment, {
     // When a post is deleted, delete all comments associated with it
     //  so there aren't any orphaned comments in the db
-    onDelete: 'CASCADE'
+    onDelete: 'CASCADE',
+    hooks: true
 });
+
+// Comment belongs to Post
+Comment.belongsTo(Post);
 
 // Comment belongs to User
 Comment.belongsTo(User);

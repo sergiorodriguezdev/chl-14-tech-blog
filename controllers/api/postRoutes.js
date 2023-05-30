@@ -63,6 +63,7 @@ router.get("/:id", async (req, res) => {
           ],
         },
       ],
+      order: [["comments", "createdOn", "DESC"]],
     });
 
     if (!postData) {
